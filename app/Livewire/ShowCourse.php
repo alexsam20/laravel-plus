@@ -38,7 +38,15 @@ class ShowCourse extends Component implements HasInfolists, HasForms
                         Infolists\Components\TextEntry::make('episodes_count')
                             ->label('')
                             ->formatStateUsing(fn ($state) => "$state episodes"),
-                        Infolists\Components\TextEntry::make('created_at')->date('M d, Y'),
+                        Infolists\Components\TextEntry::make('formatted_length')
+                            ->label(''),
+                        Infolists\Components\TextEntry::make('created_at')
+                            ->date('M d, Y'),
+                        Infolists\Components\RepeatableEntry::make('episodes')
+                            ->schema([
+                                Infolists\Components\TextEntry::make('title'),
+                                Infolists\Components\TextEntry::make('formatted_length'),
+                            ]),
                     ])
             ]);
     }
