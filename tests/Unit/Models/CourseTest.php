@@ -18,7 +18,7 @@ it('belongs to an instructor', function () {
 it('has many episodies', function () {
     $course = Course::factory()
         ->for(User::factory()->instructor(), 'instructor')
-        ->has(Episode::factory()->count(10), 'episodes')
+        ->has(Episode::factory()->state(['length_in_minutes' => 10])->count(10), 'episodes')
         ->create();
 
     expect($course->episodes)
@@ -30,7 +30,7 @@ it('has many episodies', function () {
 it('has the episodes count', function () {
     $course = Course::factory()
         ->for(User::factory()->instructor(), 'instructor')
-        ->has(Episode::factory()->count(10), 'episodes')
+        ->has(Episode::factory()->state(['length_in_minutes' => 10])->count(10), 'episodes')
         ->create();
 
     $course->loadCount('episodes');
