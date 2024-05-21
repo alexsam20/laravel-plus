@@ -57,8 +57,8 @@ class ShowCourse extends Component implements HasInfolists, HasForms
                                     ->icon('heroicon-o-clock'),
                                 Infolists\Components\TextEntry::make('created_at')
                                     ->label('')
-                                    ->date('M d, Y')
-                                    // ->formatStateUsing(fn ($state) => $state->diffForHumans())
+                                    // ->date('M d, Y')
+                                    ->formatStateUsing(fn ($state) => $state->diffForHumans())
                                     ->icon('heroicon-o-calendar'),
                                     ])
                                     ->extraAttributes(['class' => 'border-none !p-0'])
